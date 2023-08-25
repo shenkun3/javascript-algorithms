@@ -132,9 +132,6 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
       }
     }
 
-    // Clear the parent of removed node.
-    nodeToRemove.parent = null;
-
     return true;
   }
 
@@ -147,5 +144,15 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
     }
 
     return this.left.findMin();
+  }
+
+  /**
+   * @returns {BinarySearchTreeNode}
+   */
+  findMax() {
+    if (!this.right) {
+      return this;
+    }
+    return this.right.findMax();
   }
 }

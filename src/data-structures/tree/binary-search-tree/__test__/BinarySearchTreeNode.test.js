@@ -244,12 +244,18 @@ describe('BinarySearchTreeNode', () => {
     expect(bstNode.findMin().value).toEqual(obj1);
   });
 
-  it('should abandon removed node', () => {
-    const rootNode = new BinarySearchTreeNode('foo');
-    rootNode.insert('bar');
-    const childNode = rootNode.find('bar');
-    rootNode.remove('bar');
-
-    expect(childNode.parent).toBeNull();
+  it('remove 00', () => {
+    const bstRootNode = new BinarySearchTreeNode();
+    bstRootNode.insert(10);
+    bstRootNode.insert(3);
+    bstRootNode.insert(1);
+    bstRootNode.insert(6);
+    bstRootNode.insert(7);
+    bstRootNode.insert(14);
+    bstRootNode.insert(13);
+    bstRootNode.insert(8);
+    expect(bstRootNode.toString()).toBe('1,3,6,7,8,10,13,14');
+    bstRootNode.remove(3);
+    expect(bstRootNode.toString()).toBe('1,6,7,8,10,13,14');
   });
 });
